@@ -1,6 +1,6 @@
-# Universal Group Chat Application with Flutter & Firebase 📱💬
+# Group Chat Application with Flutter & Firebase 📱💬
 
-A robust Flutter application providing a unified group chat experience for authenticated users. The app leverages Firebase for real-time messaging, secure user authentication, and profile management, delivering a seamless and cohesive communication platform.
+This Flutter application provides a unified group chat experience for authenticated users. The app leverages Firebase for real-time messaging, secure user authentication, and profile management, delivering a seamless and cohesive communication platform.
 
 ## Core Features
 
@@ -13,6 +13,17 @@ A robust Flutter application providing a unified group chat experience for authe
 **Real-Time Messaging**: Powered by Firebase Firestore, the app supports real-time message synchronization. All users receive messages instantaneously, with messages displayed in chronological order.
 
 **Responsive UI**: The application is designed to be responsive, ensuring compatibility across different devices and screen sizes. The UI dynamically adapts to maintain a consistent and user-friendly experience.
+
+## Screenshots
+
+### Sign-Up Screen
+
+![Sign Up Screen](assets/screenshots/signup_screen.jpg)
+
+### Chat Screen
+
+![Chat Screen](assets/screenshots/chat_screen.jpg)
+
 
 ## Technical Overview
 
@@ -40,8 +51,8 @@ To run the application locally, follow these steps:
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/username/universal_group_chat_app.git
-    cd universal_group_chat_app
+    git clone https://github.com/dshryn/grp-chat-app.git
+    cd grp-chat-app
     ```
 
 2. **Install Dependencies**:
