@@ -47,6 +47,11 @@ This Flutter application provides a unified group chat experience for authentica
 
 ## Installation and Setup
 
+### Prerequisites
+
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) installed on your machine.
+- An editor like [Android Studio](https://developer.android.com/studio) or [Visual Studio Code](https://code.visualstudio.com/).
+
 To run the application locally, follow these steps:
 
 1. **Clone the Repository**:
