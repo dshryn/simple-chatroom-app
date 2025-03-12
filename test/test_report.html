@@ -1,665 +1,589 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>test_report.xml</title>
     <style type="text/css">
         body {
-            background-color: white;
-            padding-bottom: 20em;
-            margin: 0;
-            min-height: 15cm;
-        }
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        h7 {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
 
-        h1 {
-            background-color: #05964d;
-            color: white;
-            padding: 3mm;
-            margin-top: 0;
-            margin-bottom: 1mm;
-        }
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
 
-        .footer {
-            font-style: italic;
-            font-size: small;
-            text-align: right;
-            padding: 1em;
-        }
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
 
-        .testsuite {
-            padding-bottom: 2em;
-            margin-left: 1em;
-        }
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
 
-        .proplist {
-            width: 100%;
-            margin-bottom: 2em;
-            border-collapse: collapse;
-            border: 1px solid grey;
-        }
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
 
-        .proplist th {
-            background-color: silver;
-            width: 5em;
-            padding: 2px;
-            padding-right: 1em;
-            text-align: left;
-        }
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
 
-        .proplist td {
-            padding: 2px;
-            word-break: break-all;
-        }
+.proplist td {
+    padding: 2px;
+    word-break: break-all;
+}
 
-        .index-table {
-            width: 90%;
-            margin-left: 1em;
-        }
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
 
-        .index-table td {
-            vertical-align: top;
-            max-width: 200px;
-            word-wrap: break-word;
-        }
+.index-table td {
+    vertical-align: top;
+    max-width: 200px;
+    word-wrap: break-word;
+}
 
+.failure-index {
 
+}
 
-        .toc {
-            margin-bottom: 2em;
-            font-family: monospace;
-        }
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
 
-        .stdio,
-        pre {
-            min-height: 1em;
-            background-color: #1e1e1e;
-            color: silver;
-            padding: 0.5em;
-        }
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
 
-        .tdpre {
-            background-color: #1e1e1e;
-        }
+.test {
+    margin-left: 0.5cm;
+}
 
-        .test {
-            margin-left: 0.5cm;
-        }
+.toc {
+    list-style: none;
+}
 
-        .toc {
-            list-style: none;
-        }
+.toc li.outcome {
+    list-style: none;
+}
 
-        .toc li.outcome {
-            list-style: none;
-        }
+.toc li.outcome::before {
+    content: "\2022";
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    width: 1.27em;
+    margin-left: -1.27em;
+    font-size: 1.2em;
+}
 
-        .toc li.outcome::before {
-            content: "\2022";
-            color: black;
-            font-weight: bold;
-            display: inline-block;
-            width: 1.27em;
-            margin-left: -1.27em;
-            font-size: 1.2em;
-        }
+.toc li.outcome-failed {
+    background-color: lightcoral;
+}
 
-        .toc li.outcome-failed {
-            background-color: lightcoral;
-        }
+.toc li.outcome-failed::before {
+    color: red;
+}
 
-        .toc li.outcome-failed::before {
-            color: red;
-        }
+.toc li.outcome-passed::before {
+    color: green;
+}
 
-        .toc li.outcome-passed::before {
-            color: green;
-        }
+.toc li.outcome-skipped::before {
+    color: orange;
+}
 
-        .toc li.outcome-skipped::before {
-            color: orange;
-        }
+.testcases .outcome {
+    border-left: 1em;
+    padding: 2px;
+}
 
-        .testcases .outcome {
-            border-left: 1em;
-            padding: 2px;
-        }
-
-        .testcases .outcome-failed {
-            border-left: 1em solid lightcoral;
-        }
+.testcases .outcome-failed {
+    border-left: 1em solid lightcoral;
+}
 
 
-        .outcome-passed {
-            border-left: 1em solid lightgreen;
-        }
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
 
-        .outcome-skipped {
-            border-left: 1em dotted silver;
-        }
+.outcome-skipped {
+    border-left: 1em dotted silver;
+}
 
-        .testcases .outcome-passed {
-            border-left: 1em solid lightgreen;
-        }
+.testcases .outcome-passed {
+    border-left: 1em solid lightgreen;
+}
 
-        .testcases .outcome-skipped {
-            border-left: 1em solid #FED8B1;
-        }
+.testcases .outcome-skipped {
+    border-left: 1em solid #FED8B1;
+}
 
+.stats-table {
+}
 
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
 
-        .stats-table td {
-            min-width: 4em;
-            text-align: right;
-        }
+.stats-table .failed {
+    background-color: lightcoral;
+}
 
-        .stats-table .failed {
-            background-color: lightcoral;
-        }
+.stats-table .passed {
+    background-color: lightgreen;
+}
 
-        .stats-table .passed {
-            background-color: lightgreen;
-        }
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
 
-        .matrix-table {
-            table-layout: fixed;
-            border-spacing: 0;
-            width: available;
-            margin-left: 1em;
-        }
+.matrix-table td {
+    vertical-align: center;
+}
 
-        .matrix-table td {
-            vertical-align: center;
-        }
+.matrix-table td:last-child {
+    width: 0;
+}
 
-        .matrix-table td:last-child {
-            width: 0;
-        }
+.matrix-table tr:hover {
+    background-color: yellow;
+}
 
-        .matrix-table tr:hover {
-            background-color: yellow;
-        }
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
 
-        .matrix-axis-name {
-            white-space: nowrap;
-            padding-right: 0.5em;
-            border-left: 1px solid black;
-            border-top: 1px solid black;
-            text-align: right;
-        }
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
 
-        .matrix-axis-line {
-            border-left: 1px solid black;
-            width: 0.5em;
-        }
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
 
-        .matrix-classname {
-            text-align: left;
-            width: 100%;
-            border-top: 2px solid grey;
-            border-bottom: 1px solid silver;
-        }
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
 
-        .matrix-casename {
-            text-align: left;
-            font-weight: normal;
-            font-style: italic;
-            padding-left: 1em;
-            border-bottom: 1px solid silver;
-        }
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
 
-        .matrix-result {
-            display: block;
-            width: 1em;
-            text-align: center;
-            padding: 1mm;
-            margin: 0;
-        }
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
 
-        .matrix-result-combined {
-            white-space: nowrap;
-            padding-right: 0.2em;
-            text-align: right;
-        }
+.matrix-result-failed {
+    background-color: lightcoral;
+}
 
-        .matrix-result-failed {
-            background-color: lightcoral;
-        }
+.matrix-result-passed {
+    background-color: lightgreen;
+}
 
-        .matrix-result-passed {
-            background-color: lightgreen;
-        }
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
 
-        .matrix-result-skipped {
-            background-color: lightyellow;
-        }
-
-        .matrix-even {
-            background-color: lightgray;
-        }
+.matrix-even {
+    background-color: lightgray;
+}
     </style>
 </head>
-
 <body>
-
-    <h1>
-        Test Report : test_report.xml
-    </h1>
-
-
-    <a id="toc"></a>
-    <table class="index-table">
-        <tr>
-            <td>
-                <ul class="toc">
+    
+<h1>
+    Test Report : test_report.xml
+</h1>
 
 
-                    <li>D:.Code Files.Dart.chatapp.test.auth
-                        <ul>
-
-                            <li class="outcome outcome-passed"><a href="#5c2ab446-8547-4475-8448-10e567eb8603">Auth
-                                    Tests User successfully logs in</a></li>
-
-                            <li class="outcome outcome-passed"><a href="#18882199-8bfa-4658-b0c9-508a24b9bc12">Auth
-                                    Tests User login fails with incorrect credentials</a></li>
-
-                        </ul>
-                    </li>
-
-
-
-                    <li>D:.Code Files.Dart.chatapp.test.auth_widget
-                        <ul>
-
-                            <li class="outcome outcome-passed"><a href="#716eb90d-d649-487c-b9cf-ced4ed6827c2">Login
-                                    screen loads correctly</a></li>
-
-                        </ul>
-                    </li>
-
-
-
-                    <li>D:.Code Files.Dart.chatapp.test.chat_widget
-                        <ul>
-
-                            <li class="outcome outcome-failed"><a href="#1b36708b-8565-4a5d-9184-a8e69e10c519">Chat
-                                    screen loads correctly</a></li>
-
-                        </ul>
-                    </li>
-
-
-
-                    <li>D:.Code Files.Dart.chatapp.test.new_message
-                        <ul>
-
-                            <li class="outcome outcome-passed"><a href="#15cf2524-18a3-4ec4-819c-1a095bf64458">New
-                                    message input field and send button exist</a></li>
-
-                            <li class="outcome outcome-failed"><a href="#8ebfa671-9652-4906-9c1f-07209bdb66f0">Typing
-                                    and sending a message</a></li>
-
-                        </ul>
-                    </li>
-
-
-
-                    <li>D:.Code Files.Dart.chatapp.test.splash_screen
-                        <ul>
-
-                            <li class="outcome outcome-failed"><a href="#02d28d9b-75da-411e-910a-68ca0127f80f">Splash
-                                    screen shows loading indicator</a></li>
-
-                            <li class="outcome outcome-failed"><a href="#9753737a-d4e6-4dbe-91f1-00002b0fe102">Splash
-                                    screen navigates to ChatScreen if user is logged in</a></li>
-
-                            <li class="outcome outcome-failed"><a href="#4e9ef67c-d9d8-4f4e-8ec7-bf7a66bff29a">Splash
-                                    screen navigates to AuthScreen if user is not logged in</a></li>
-
-                        </ul>
-                    </li>
-
-
-
-                    <li>D:.Code Files.Dart.chatapp.test.widget
-                        <ul>
-
-                            <li class="outcome outcome-failed"><a href="#cbff7d97-a583-49c0-9e9e-6206cbb22c77">Counter
-                                    increments smoke test</a></li>
-
-                        </ul>
-                    </li>
-
-
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>D:.Code Files.Dart.chatapp.test.auth
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#5c2ab446-8547-4475-8448-10e567eb8603">Auth Tests User successfully logs in</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#18882199-8bfa-4658-b0c9-508a24b9bc12">Auth Tests User login fails with incorrect credentials</a></li>
+                    
                 </ul>
-            </td>
-            <td class="failure-index">
-                <ul class="toc">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <li><a href="#1b36708b-8565-4a5d-9184-a8e69e10c519">[F] D:.Code Files.Dart.chatapp.test.chat_widget
-                            : Chat screen loads correctly</a></li>
-
-
-
-
-
-
-
-
-
-                    <li><a href="#8ebfa671-9652-4906-9c1f-07209bdb66f0">[F] D:.Code Files.Dart.chatapp.test.new_message
-                            : Typing and sending a message</a></li>
-
-
-
-
-
-
-
-                    <li><a href="#02d28d9b-75da-411e-910a-68ca0127f80f">[F] D:.Code
-                            Files.Dart.chatapp.test.splash_screen : Splash screen shows loading indicator</a></li>
-
-
-
-                    <li><a href="#9753737a-d4e6-4dbe-91f1-00002b0fe102">[F] D:.Code
-                            Files.Dart.chatapp.test.splash_screen : Splash screen navigates to ChatScreen if user is
-                            logged in</a></li>
-
-
-
-                    <li><a href="#4e9ef67c-d9d8-4f4e-8ec7-bf7a66bff29a">[F] D:.Code
-                            Files.Dart.chatapp.test.splash_screen : Splash screen navigates to AuthScreen if user is not
-                            logged in</a></li>
-
-
-
-
-
-
-
-                    <li><a href="#cbff7d97-a583-49c0-9e9e-6206cbb22c77">[F] D:.Code Files.Dart.chatapp.test.widget :
-                            Counter increments smoke test</a></li>
-
-
-
-
+                </li>
+                
+            
+                
+                <li>D:.Code Files.Dart.chatapp.test.auth_widget
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#716eb90d-d649-487c-b9cf-ced4ed6827c2">Login screen loads correctly</a></li>
+                    
                 </ul>
-            </td>
-        </tr>
-    </table>
+                </li>
+                
+            
+                
+                <li>D:.Code Files.Dart.chatapp.test.chat_widget
+                <ul>
+                    
+                    <li class="outcome outcome-failed"><a href="#1b36708b-8565-4a5d-9184-a8e69e10c519">Chat screen loads correctly</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+                
+                <li>D:.Code Files.Dart.chatapp.test.new_message
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#15cf2524-18a3-4ec4-819c-1a095bf64458">New message input field and send button exist</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#8ebfa671-9652-4906-9c1f-07209bdb66f0">Typing and sending a message</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+                
+                <li>D:.Code Files.Dart.chatapp.test.splash_screen
+                <ul>
+                    
+                    <li class="outcome outcome-failed"><a href="#02d28d9b-75da-411e-910a-68ca0127f80f">Splash screen shows loading indicator</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#9753737a-d4e6-4dbe-91f1-00002b0fe102">Splash screen navigates to ChatScreen if user is logged in</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#4e9ef67c-d9d8-4f4e-8ec7-bf7a66bff29a">Splash screen navigates to AuthScreen if user is not logged in</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+                
+                <li>D:.Code Files.Dart.chatapp.test.widget
+                <ul>
+                    
+                    <li class="outcome outcome-failed"><a href="#cbff7d97-a583-49c0-9e9e-6206cbb22c77">Counter increments smoke test</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    
+                    
+                    
+                
+            
+                
+                    
+                    
+                    
+                
+            
+                
+                    
+                    
+                    <li><a href="#1b36708b-8565-4a5d-9184-a8e69e10c519">[F] D:.Code Files.Dart.chatapp.test.chat_widget : Chat screen loads correctly</a></li>
+                    
+                    
+                
+            
+                
+                    
+                    
+                    
+                    
+                    <li><a href="#8ebfa671-9652-4906-9c1f-07209bdb66f0">[F] D:.Code Files.Dart.chatapp.test.new_message : Typing and sending a message</a></li>
+                    
+                    
+                
+            
+                
+                    
+                    
+                    <li><a href="#02d28d9b-75da-411e-910a-68ca0127f80f">[F] D:.Code Files.Dart.chatapp.test.splash_screen : Splash screen shows loading indicator</a></li>
+                    
+                    
+                    
+                    <li><a href="#9753737a-d4e6-4dbe-91f1-00002b0fe102">[F] D:.Code Files.Dart.chatapp.test.splash_screen : Splash screen navigates to ChatScreen if user is logged in</a></li>
+                    
+                    
+                    
+                    <li><a href="#4e9ef67c-d9d8-4f4e-8ec7-bf7a66bff29a">[F] D:.Code Files.Dart.chatapp.test.splash_screen : Splash screen navigates to AuthScreen if user is not logged in</a></li>
+                    
+                    
+                
+            
+                
+                    
+                    
+                    <li><a href="#cbff7d97-a583-49c0-9e9e-6206cbb22c77">[F] D:.Code Files.Dart.chatapp.test.widget : Counter increments smoke test</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
 
 
 
     <div class="testsuite">
         <h2>Test Suite: D:.Code Files.Dart.chatapp.test.auth</h2>
         <a id="43808c1d-c709-4e56-8d64-800903f79815"></a>
-
-
+        
+        
         <h3>Suite Properties</h3>
         <table class="proplist">
-
+            
             <tr>
-                <th>platform</th>
-                <td>vm</td>
+                <th>platform</th><td>vm</td>
             </tr>
-
+            
         </table>
-
+        
         <h3>Results</h3>
         <table class="proplist">
             <tr>
-                <th>Duration</th>
-                <td>0.0 sec</td>
+                <th>Duration</th><td>0.0 sec</td>
             </tr>
             <tr>
-                <th>Tests</th>
-                <td>2</td>
+                <th>Tests</th><td>2</td>
             </tr>
             <tr>
-                <th>Failures</th>
-                <td>0</td>
+                <th>Failures</th><td>0</td>
             </tr>
         </table>
 
         <div class="testclasses">
             <h3>Tests</h3>
-
+            
             <div class="testclass">
                 <h4>D:.Code Files.Dart.chatapp.test.auth</h4>
                 <div class="testcases">
-
+                
                     <div class="test outcome outcome-passed">
                         <a id="5c2ab446-8547-4475-8448-10e567eb8603"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Auth Tests User successfully logs in</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Passed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>0.071 sec</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Auth Tests User successfully logs in</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.071 sec</td></tr>
+                        
+                        
                         </table>
 
+                        
+                        
 
-
-
-
-
-
+                        
+                        
+                        
                     </div>
-
+                
                     <div class="test outcome outcome-passed">
                         <a id="18882199-8bfa-4658-b0c9-508a24b9bc12"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Auth Tests User login fails with incorrect credentials</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Passed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>0.022 sec</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Auth Tests User login fails with incorrect credentials</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.022 sec</td></tr>
+                        
+                        
                         </table>
 
+                        
+                        
 
-
-
-
-
-
+                        
+                        
+                        
                     </div>
-
+                
                 </div>
             </div>
-
+            
         </div>
     </div>
-
+    
 
     <div class="testsuite">
         <h2>Test Suite: D:.Code Files.Dart.chatapp.test.auth_widget</h2>
         <a id="da094dc5-8388-4c11-8039-cae9b236359f"></a>
-
-
+        
+        
         <h3>Suite Properties</h3>
         <table class="proplist">
-
+            
             <tr>
-                <th>platform</th>
-                <td>vm</td>
+                <th>platform</th><td>vm</td>
             </tr>
-
+            
         </table>
-
+        
         <h3>Results</h3>
         <table class="proplist">
             <tr>
-                <th>Duration</th>
-                <td>0.0 sec</td>
+                <th>Duration</th><td>0.0 sec</td>
             </tr>
             <tr>
-                <th>Tests</th>
-                <td>1</td>
+                <th>Tests</th><td>1</td>
             </tr>
             <tr>
-                <th>Failures</th>
-                <td>0</td>
+                <th>Failures</th><td>0</td>
             </tr>
         </table>
 
         <div class="testclasses">
             <h3>Tests</h3>
-
+            
             <div class="testclass">
                 <h4>D:.Code Files.Dart.chatapp.test.auth_widget</h4>
                 <div class="testcases">
-
+                
                     <div class="test outcome outcome-passed">
                         <a id="716eb90d-d649-487c-b9cf-ced4ed6827c2"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Login screen loads correctly</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Passed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>2.266 sec</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Login screen loads correctly</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>2.266 sec</td></tr>
+                        
+                        
                         </table>
 
+                        
+                        
 
-
-
-
-
-
+                        
+                        
+                        
                     </div>
-
+                
                 </div>
             </div>
-
+            
         </div>
     </div>
-
+    
 
     <div class="testsuite">
         <h2>Test Suite: D:.Code Files.Dart.chatapp.test.chat_widget</h2>
         <a id="b3db6f53-16ac-439a-aaa9-787263980b97"></a>
-
-
+        
+        
         <h3>Suite Properties</h3>
         <table class="proplist">
-
+            
             <tr>
-                <th>platform</th>
-                <td>vm</td>
+                <th>platform</th><td>vm</td>
             </tr>
-
+            
         </table>
-
+        
         <h3>Results</h3>
         <table class="proplist">
             <tr>
-                <th>Duration</th>
-                <td>0.0 sec</td>
+                <th>Duration</th><td>0.0 sec</td>
             </tr>
             <tr>
-                <th>Tests</th>
-                <td>1</td>
+                <th>Tests</th><td>1</td>
             </tr>
             <tr>
-                <th>Failures</th>
-                <td>1</td>
+                <th>Failures</th><td>1</td>
             </tr>
         </table>
 
         <div class="testclasses">
             <h3>Tests</h3>
-
+            
             <div class="testclass">
                 <h4>D:.Code Files.Dart.chatapp.test.chat_widget</h4>
                 <div class="testcases">
-
+                
                     <div class="test outcome outcome-failed">
                         <a id="1b36708b-8565-4a5d-9184-a8e69e10c519"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Chat screen loads correctly</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Failed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>3.353 sec</td>
-                            </tr>
-
-                            <tr>
-                                <th>Failed</th>
-                                <td>1 error, see stacktrace for details</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Chat screen loads correctly</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>3.353 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>1 error, see stacktrace for details</td></tr>
+                        
+                        
                         </table>
 
-
+                        
                         <pre>Error:
 
 Test failed. See exception logs above.
 The test description was: Chat screen loads correctly</pre>
+                        
+                        
 
-
-
-
-
+                        
+                        
                         <div class="stdout"><i>Stdout</i><br>
                             <pre>????????? EXCEPTION CAUGHT BY WIDGETS LIBRARY ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 The following FirebaseException was thrown building ChatMessages(dirty):
@@ -880,116 +804,91 @@ Multiple exceptions (2) were detected during the running of the current test, an
 unexpected.
 ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????</pre>
                         </div>
-
-
+                        
+                        
                     </div>
-
+                
                 </div>
             </div>
-
+            
         </div>
     </div>
-
+    
 
     <div class="testsuite">
         <h2>Test Suite: D:.Code Files.Dart.chatapp.test.new_message</h2>
         <a id="673d7c0f-d4c3-467c-ad61-78a4770e2825"></a>
-
-
+        
+        
         <h3>Suite Properties</h3>
         <table class="proplist">
-
+            
             <tr>
-                <th>platform</th>
-                <td>vm</td>
+                <th>platform</th><td>vm</td>
             </tr>
-
+            
         </table>
-
+        
         <h3>Results</h3>
         <table class="proplist">
             <tr>
-                <th>Duration</th>
-                <td>0.0 sec</td>
+                <th>Duration</th><td>0.0 sec</td>
             </tr>
             <tr>
-                <th>Tests</th>
-                <td>2</td>
+                <th>Tests</th><td>2</td>
             </tr>
             <tr>
-                <th>Failures</th>
-                <td>1</td>
+                <th>Failures</th><td>1</td>
             </tr>
         </table>
 
         <div class="testclasses">
             <h3>Tests</h3>
-
+            
             <div class="testclass">
                 <h4>D:.Code Files.Dart.chatapp.test.new_message</h4>
                 <div class="testcases">
-
+                
                     <div class="test outcome outcome-passed">
                         <a id="15cf2524-18a3-4ec4-819c-1a095bf64458"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>New message input field and send button exist</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Passed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>2.319 sec</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>New message input field and send button exist</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>2.319 sec</td></tr>
+                        
+                        
                         </table>
 
+                        
+                        
 
-
-
-
-
-
+                        
+                        
+                        
                     </div>
-
+                
                     <div class="test outcome outcome-failed">
                         <a id="8ebfa671-9652-4906-9c1f-07209bdb66f0"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Typing and sending a message</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Failed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>1.178 sec</td>
-                            </tr>
-
-                            <tr>
-                                <th>Failed</th>
-                                <td>1 error, see stacktrace for details</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Typing and sending a message</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>1.178 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>1 error, see stacktrace for details</td></tr>
+                        
+                        
                         </table>
 
-
+                        
                         <pre>Error:
 
 Test failed. See exception logs above.
 The test description was: Typing and sending a message</pre>
+                        
+                        
 
-
-
-
-
+                        
+                        
                         <div class="stdout"><i>Stdout</i><br>
                             <pre>????????? EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 The following FirebaseException was thrown running a test:
@@ -1042,89 +941,73 @@ The test description was:
   Typing and sending a message
 ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????</pre>
                         </div>
-
-
+                        
+                        
                     </div>
-
+                
                 </div>
             </div>
-
+            
         </div>
     </div>
-
+    
 
     <div class="testsuite">
         <h2>Test Suite: D:.Code Files.Dart.chatapp.test.splash_screen</h2>
         <a id="070ba5f0-9939-4b79-815a-b5e495becd77"></a>
-
-
+        
+        
         <h3>Suite Properties</h3>
         <table class="proplist">
-
+            
             <tr>
-                <th>platform</th>
-                <td>vm</td>
+                <th>platform</th><td>vm</td>
             </tr>
-
+            
         </table>
-
+        
         <h3>Results</h3>
         <table class="proplist">
             <tr>
-                <th>Duration</th>
-                <td>0.0 sec</td>
+                <th>Duration</th><td>0.0 sec</td>
             </tr>
             <tr>
-                <th>Tests</th>
-                <td>3</td>
+                <th>Tests</th><td>3</td>
             </tr>
             <tr>
-                <th>Failures</th>
-                <td>3</td>
+                <th>Failures</th><td>3</td>
             </tr>
         </table>
 
         <div class="testclasses">
             <h3>Tests</h3>
-
+            
             <div class="testclass">
                 <h4>D:.Code Files.Dart.chatapp.test.splash_screen</h4>
                 <div class="testcases">
-
+                
                     <div class="test outcome outcome-failed">
                         <a id="02d28d9b-75da-411e-910a-68ca0127f80f"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Splash screen shows loading indicator</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Failed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>2.188 sec</td>
-                            </tr>
-
-                            <tr>
-                                <th>Failed</th>
-                                <td>1 error, see stacktrace for details</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Splash screen shows loading indicator</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>2.188 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>1 error, see stacktrace for details</td></tr>
+                        
+                        
                         </table>
 
-
+                        
                         <pre>Error:
 
 Test failed. See exception logs above.
 The test description was: Splash screen shows loading indicator</pre>
+                        
+                        
 
-
-
-
-
+                        
+                        
                         <div class="stdout"><i>Stdout</i><br>
                             <pre>????????? EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 The following TestFailure was thrown running a test:
@@ -1148,44 +1031,32 @@ The test description was:
   Splash screen shows loading indicator
 ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????</pre>
                         </div>
-
-
+                        
+                        
                     </div>
-
+                
                     <div class="test outcome outcome-failed">
                         <a id="9753737a-d4e6-4dbe-91f1-00002b0fe102"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Splash screen navigates to ChatScreen if user is logged in</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Failed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>0.335 sec</td>
-                            </tr>
-
-                            <tr>
-                                <th>Failed</th>
-                                <td>1 error, see stacktrace for details</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Splash screen navigates to ChatScreen if user is logged in</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.335 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>1 error, see stacktrace for details</td></tr>
+                        
+                        
                         </table>
 
-
+                        
                         <pre>Error:
 
 Test failed. See exception logs above.
 The test description was: Splash screen navigates to ChatScreen if user is logged in</pre>
+                        
+                        
 
-
-
-
-
+                        
+                        
                         <div class="stdout"><i>Stdout</i><br>
                             <pre>????????? EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 The following TestFailure was thrown running a test:
@@ -1209,44 +1080,32 @@ The test description was:
   Splash screen navigates to ChatScreen if user is logged in
 ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????</pre>
                         </div>
-
-
+                        
+                        
                     </div>
-
+                
                     <div class="test outcome outcome-failed">
                         <a id="4e9ef67c-d9d8-4f4e-8ec7-bf7a66bff29a"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Splash screen navigates to AuthScreen if user is not logged in</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Failed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>0.142 sec</td>
-                            </tr>
-
-                            <tr>
-                                <th>Failed</th>
-                                <td>1 error, see stacktrace for details</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Splash screen navigates to AuthScreen if user is not logged in</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.142 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>1 error, see stacktrace for details</td></tr>
+                        
+                        
                         </table>
 
-
+                        
                         <pre>Error:
 
 Test failed. See exception logs above.
 The test description was: Splash screen navigates to AuthScreen if user is not logged in</pre>
+                        
+                        
 
-
-
-
-
+                        
+                        
                         <div class="stdout"><i>Stdout</i><br>
                             <pre>????????? EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 The following TestFailure was thrown running a test:
@@ -1270,89 +1129,73 @@ The test description was:
   Splash screen navigates to AuthScreen if user is not logged in
 ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????</pre>
                         </div>
-
-
+                        
+                        
                     </div>
-
+                
                 </div>
             </div>
-
+            
         </div>
     </div>
-
+    
 
     <div class="testsuite">
         <h2>Test Suite: D:.Code Files.Dart.chatapp.test.widget</h2>
         <a id="0ff4d847-9629-4705-93fb-55a78f58e46c"></a>
-
-
+        
+        
         <h3>Suite Properties</h3>
         <table class="proplist">
-
+            
             <tr>
-                <th>platform</th>
-                <td>vm</td>
+                <th>platform</th><td>vm</td>
             </tr>
-
+            
         </table>
-
+        
         <h3>Results</h3>
         <table class="proplist">
             <tr>
-                <th>Duration</th>
-                <td>0.0 sec</td>
+                <th>Duration</th><td>0.0 sec</td>
             </tr>
             <tr>
-                <th>Tests</th>
-                <td>1</td>
+                <th>Tests</th><td>1</td>
             </tr>
             <tr>
-                <th>Failures</th>
-                <td>1</td>
+                <th>Failures</th><td>1</td>
             </tr>
         </table>
 
         <div class="testclasses">
             <h3>Tests</h3>
-
+            
             <div class="testclass">
                 <h4>D:.Code Files.Dart.chatapp.test.widget</h4>
                 <div class="testcases">
-
+                
                     <div class="test outcome outcome-failed">
                         <a id="cbff7d97-a583-49c0-9e9e-6206cbb22c77"></a>
                         <table class="proplist">
-                            <tr>
-                                <th>Test case:</th>
-                                <td><b>Counter increments smoke test</b></td>
-                            </tr>
-                            <tr>
-                                <th>Outcome:</th>
-                                <td>Failed</td>
-                            </tr>
-                            <tr>
-                                <th>Duration:</th>
-                                <td>0.67 sec</td>
-                            </tr>
-
-                            <tr>
-                                <th>Failed</th>
-                                <td>1 error, see stacktrace for details</td>
-                            </tr>
-
-
+                            <tr><th>Test case:</th><td><b>Counter increments smoke test</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.67 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>1 error, see stacktrace for details</td></tr>
+                        
+                        
                         </table>
 
-
+                        
                         <pre>Error:
 
 Test failed. See exception logs above.
 The test description was: Counter increments smoke test</pre>
+                        
+                        
 
-
-
-
-
+                        
+                        
                         <div class="stdout"><i>Stdout</i><br>
                             <pre>????????? EXCEPTION CAUGHT BY WIDGETS LIBRARY ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 The following FirebaseException was thrown building App(dirty):
@@ -1480,22 +1323,21 @@ Multiple exceptions (2) were detected during the running of the current test, an
 unexpected.
 ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????</pre>
                         </div>
-
-
+                        
+                        
                     </div>
-
+                
                 </div>
             </div>
-
+            
         </div>
     </div>
+    
 
 
 
-
-    <p class="footer">
-        Generated by junit2html
-    </p>
+<p class="footer">
+    Generated by junit2html
+</p>
 </body>
-
 </html>
