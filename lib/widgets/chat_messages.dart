@@ -45,7 +45,6 @@ class ChatMessages extends StatelessWidget {
             final nextChatMessage = index + 1 < loadedMessages.length
                 ? loadedMessages[index + 1].data()
                 : null;
-
             final currentMessageUserId = chatMessage['userId'];
             final nextMessageUserId =
                 nextChatMessage != null ? nextChatMessage['userId'] : null;

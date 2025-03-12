@@ -26,9 +26,9 @@ class _AuthScreenState extends State<AuthScreen> {
   File? _selectedImage;
 
   void _submit() async {
-    final _isValid = _form.currentState!.validate();
+    final isValid = _form.currentState!.validate();
 
-    if (!_isValid || (!_isLogin && _selectedImage == null)) {
+    if (!isValid || (!_isLogin && _selectedImage == null)) {
       _showErrorDialog('Please enter all fields correctly.');
       return;
     }
@@ -125,7 +125,7 @@ class _AuthScreenState extends State<AuthScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Welcome To FlutChat!',
+              const Text('Welcome To Chattr!',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 30,
