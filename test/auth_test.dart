@@ -4,7 +4,6 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'auth_test.mocks.dart';
 
-// ✅ Generate mocks for FirebaseAuth and UserCredential
 @GenerateMocks([FirebaseAuth, User, UserCredential])
 void main() {
   final mockAuth = MockFirebaseAuth();

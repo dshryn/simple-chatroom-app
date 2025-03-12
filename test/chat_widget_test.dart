@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mockito/mockito.dart';
 import 'package:chat_app/screens/chat.dart';
-import 'firebase_mocks.mocks.dart'; // Import generated mocks
+import 'firebase_mocks.mocks.dart';
 
 void main() {
   late MockFirebaseAuth mockAuth;
@@ -16,10 +15,9 @@ void main() {
     try {
       await Firebase.initializeApp();
     } catch (e) {
-      // Ignore if Firebase is already initialized
+      print('Firebase initialization error: $e');
     }
 
-    // Mock Firebase instances
     mockAuth = MockFirebaseAuth();
     mockFirestore = MockFirebaseFirestore();
     mockMessaging = MockFirebaseMessaging();
@@ -28,7 +26,6 @@ void main() {
   testWidgets('Chat screen loads correctly', (WidgetTester tester) async {
     await tester.pumpWidget(const MaterialApp(home: ChatScreen()));
 
-    // ✅ Check if ChatMessages & NewMessage widgets exist
     expect(find.byType(Expanded), findsWidgets);
     expect(find.byType(TextField), findsOneWidget);
   });

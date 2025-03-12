@@ -6,7 +6,6 @@ import 'package:chat_app/screens/splash.dart';
 import 'package:chat_app/screens/chat.dart';
 import 'package:chat_app/screens/auth.dart';
 
-// ✅ Mock FirebaseAuth
 class MockFirebaseAuth extends Mock implements FirebaseAuth {}
 
 class MockUser extends Mock implements User {}
@@ -24,7 +23,6 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(const MaterialApp(home: SplashScreen()));
 
-    // ✅ Check if CircularProgressIndicator is shown
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
 
@@ -36,10 +34,8 @@ void main() {
       home: SplashScreen(),
     ));
 
-    // ✅ Wait for navigation
     await tester.pumpAndSettle();
 
-    // ✅ Ensure we are now on ChatScreen
     expect(find.byType(ChatScreen), findsOneWidget);
   });
 
@@ -51,10 +47,8 @@ void main() {
       home: SplashScreen(),
     ));
 
-    // ✅ Wait for navigation
     await tester.pumpAndSettle();
 
-    // ✅ Ensure we are now on AuthScreen
     expect(find.byType(AuthScreen), findsOneWidget);
   });
 }
