@@ -56,8 +56,8 @@ To run the application locally, follow these steps:
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/dshryn/grp-chat-app.git
-    cd grp-chat-app
+    git clone https://github.com/dshryn/simple-chatroom-app
+    cd simple-chatroom-app
     ```
 
 2. **Install Dependencies**:
@@ -79,10 +79,23 @@ To run the application locally, follow these steps:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: ^2.8.0
-  firebase_auth: ^4.8.2
-  cloud_firestore: ^5.5.0
-  flutter_riverpod: ^2.5.1
-  cupertino_icons: ^1.0.2
-  image_picker: ^0.8.4+2
-  provider: ^6.0.1
+
+  cupertino_icons: ^1.0.6
+  firebase_core: ^3.3.0
+  firebase_auth: ^5.1.3
+  firebase_storage: ^12.1.2
+  image_picker: ^1.1.2
+  cloud_firestore: ^5.2.0
+  firebase_messaging: ^15.0.4
+  firebase_core_platform_interface: ^5.2.1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  mockito: ^5.4.5
+  build_runner: ^2.4.15
+
+
